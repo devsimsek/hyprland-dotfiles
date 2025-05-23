@@ -3,7 +3,6 @@
 # Core system
 base-devel
 git
-yay
 zsh
 starship
 kitty
