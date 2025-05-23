@@ -1,0 +1,79 @@
+# Fedora minimal package list for Rose Pine + Hyprland setup
+
+# Core system
+zsh
+starship
+kitty
+neovim
+vi
+htop
+eza
+fzf
+ripgrep
+fd-find
+python3-pip
+python3-gobject
+python3-screeninfo
+imagemagick
+jq
+xclip
+cargo
+rust
+flatpak
+git
+
+# Hyprland & Wayland essentials
+hyprland
+waybar
+rofi-wayland
+swaync
+wlogout
+grim
+slurp
+cliphist
+nwg-look
+qt6ct
+brightnessctl
+polkit-gnome
+network-manager-applet
+nm-connection-editor
+blueman
+power-profiles-daemon
+tumbler
+gvfs
+
+# File manager
+nautilus
+
+# Appearance
+papirus-icon-theme
+breeze-icon-theme
+bibata-cursor-theme
+adwaita-gtk3-theme
+gtk4
+libadwaita
+
+# Fonts
+jetbrains-mono-fonts
+fira-code-fonts
+fira-sans-fonts
+fontawesome-fonts
+dejavu-sans-fonts
+
+# SDDM
+sddm
+
+# Optional: Rose Pine themes (manual install or via script)
+# See: https://github.com/rose-pine/sddm, https://github.com/rose-pine/gtk
+
+# Optional: Wallpapers (add to wallpapers/ directory)
+
+# Optional: Other apps
+pinta
+loupe
+
+# Flatpak apps (install via flatpak)
+# zed
+# zen-browser
+
+# Note: Some packages may require enabling RPM Fusion or third-party repos.

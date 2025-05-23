@@ -1,0 +1,104 @@
+# Minimal Arch Linux Package List for Rose Pine + Hyprland Setup
+
+# Core system
+base-devel
+git
+yay
+zsh
+starship
+kitty
+neovim
+vi
+eza
+fzf
+htop
+fastfetch
+
+# Hyprland & Wayland essentials
+hyprland
+xdg-desktop-portal-hyprland
+xdg-desktop-portal-gtk
+waybar
+nwg-dock-hyprland
+rofi-wayland
+swaync
+wlogout
+grim
+slurp
+cliphist
+grimblast-git
+waypaper
+matugen
+wallust
+
+# File manager & utilities
+nautilus
+tumbler
+gvfs
+imagemagick
+jq
+xclip
+pinta
+loupe
+
+# Networking
+networkmanager
+nm-connection-editor
+network-manager-applet
+blueman
+
+# Appearance & theming
+papirus-icon-theme
+bibata-cursor-theme-bin
+breeze
+nwg-look
+qt6ct
+sddm
+sddm-theme-rose-pine-git
+
+# Fonts
+ttf-jetbrains-mono
+otf-font-awesome
+ttf-fira-sans
+ttf-fira-code
+ttf-firacode-nerd
+ttf-dejavu
+
+# Audio
+pavucontrol
+
+# Power & system
+brightnessctl
+power-profiles-daemon
+polkit-gnome
+fuse2
+
+# Package management
+flatpak
+pacseek
+checkupdates-with-aur
+
+# Python
+python-pip
+python-gobject
+python-screeninfo
+
+# Rust
+rust
+cargo
+
+# Optional: Zed & Zen Browser (AUR/3rd party)
+zed-git
+zen-browser-bin
+
+# Additional packages
+nautilus
+nautilus-open-any-terminal
+gnome-text-editor
+gnome-calculator
+loupe
+mpv
+imv
+ffmpegthumbnailer
+zsh-autosuggestions
+zsh-syntax-highlighting

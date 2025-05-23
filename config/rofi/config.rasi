@@ -1,0 +1,95 @@
+/* Rose Pine Minimal Rofi Config */
+configuration {
+    font: "JetBrains Mono 12";
+    show-icons: true;
+    display-drun: " ";
+    display-run: " ";
+    display-window: " ";
+    display-ssh: " ";
+    modi: "drun,run,window,ssh";
+    icon-theme: "Papirus";
+    location: 0;
+    width: 400;
+    lines: 8;
+    columns: 1;
+    padding: 20;
+    border: 2;
+    border-radius: 12;
+    separator-style: "solid";
+    hide-scrollbar: false;
+}
+
+* {
+    background:     #191724FF;
+    background-alt: #1f1d2bFF;
+    foreground:     #e0def4FF;
+    selected:       #31748fFF;
+    active:         #9ccfd8FF;
+    urgent:         #eb6f92FF;
+    border-color:   #403d52FF;
+    separator:      #6e6a86FF;
+}
+
+window {
+    background-color: @background;
+    border:           2px;
+    border-color:     @border-color;
+    border-radius:    12px;
+}
+
+mainbox {
+    background-color: @background;
+    border-radius:    12px;
+    padding:          20px;
+}
+
+listview {
+    background-color: @background;
+    lines:            8;
+    columns:          1;
+    spacing:          4px;
+    border-radius:    8px;
+    padding:          8px;
+    scrollbar:        true;
+    fixed-height:     true;
+}
+
+element {
+    background-color: @background;
+    text-color:       @foreground;
+    border-radius:    6px;
+    padding:          6px;
+}
+
+element selected {
+    background-color: @selected;
+    text-color:       @background;
+}
+
+element urgent {
+    background-color: @urgent;
+    text-color:       @background;
+}
+
+element active {
+    background-color: @active;
+    text-color:       @background;
+}
+
+entry {
+    background-color: @background-alt;
+    text-color:       @foreground;
+    border-radius:    8px;
+    padding:          8px;
+}
+
+button {
+    background-color: @background-alt;
+    text-color:       @foreground;
+    border-radius:    8px;
+    padding:          8px;
+}
+
+textbox {
+    text-color:       @foreground;
+}

@@ -1,0 +1,52 @@
+# Minimal Rose Pine starship.toml
+
+add_newline = true
+
+[character]
+success_symbol = "[❯](bold #ebbcba)"
+error_symbol = "[❯](bold #eb6f92)"
+
+[palette]
+rosepine_foam = "#9ccfd8"
+rosepine_iris = "#c4a7e7"
+rosepine_love = "#eb6f92"
+rosepine_gold = "#f6c177"
+rosepine_pine = "#31748f"
+rosepine_rose = "#ebbcba"
+rosepine_highlight = "#f6c177"
+rosepine_surface = "#232136"
+rosepine_overlay = "#393552"
+rosepine_muted = "#6e6a86"
+rosepine_subtle = "#908caa"
+rosepine_text = "#e0def4"
+rosepine_base = "#191724"
+
+[git_branch]
+symbol = " "
+style = "bold rosepine_foam"
+
+[git_status]
+style = "rosepine_love"
+
+[directory]
+style = "bold rosepine_gold"
+
+[username]
+style_user = "rosepine_iris"
+style_root = "rosepine_love"
+format = "[$user]($style) "
+
+[hostname]
+style = "rosepine_pine"
+format = "on [$hostname]($style) "
+
+[time]
+disabled = false
+format = "[$time]($style) "
+style = "rosepine_subtle"
+
+[cmd_duration]
+style = "rosepine_highlight"
+
+[package]
+style = "rosepine_rose"

@@ -1,0 +1,29 @@
+{
+  "position": "top-right",
+  "layer": "overlay",
+  "control-center-layer": "overlay",
+  "css": "~/.config/swaync/style.css",
+  "notification-criteria": [],
+  "widgets": [
+    "notifications",
+    "dnd",
+    "mpris",
+    "buttons"
+  ],
+  "notification-urgency-colors": {
+    "low": "#232136",
+    "normal": "#286983",
+    "critical": "#eb6f92"
+  },
+  "border-radius": 12,
+  "timeout": 6,
+  "max-notifications": 5,
+  "max-visible-notifications": 3,
+  "notification-gap": 8,
+  "notification-margin": 12,
+  "notification-padding": 16,
+  "background": "#232136cc",
+  "border-color": "#393552",
+  "text-color": "#e0def4",
+  "icon-theme": "Papirus"
+}

@@ -1,0 +1,69 @@
+# Nix package list for Rose Pine themed Hyprland setup
+
+# Core system
+hyprland
+waybar
+kitty
+zsh
+starship
+neovim
+fastfetch
+eza
+fzf
+htop
+python3
+python3Packages.pip
+imagemagick
+jq
+xclip
+pavucontrol
+networkmanager
+blueman
+grim
+slurp
+cliphist
+swaynotificationcenter
+wlogout
+flatpak
+rustc
+cargo
+
+# Appearance & theming
+rose-pine-gtk-theme
+rose-pine-wallpapers
+papirus-icon-theme
+bibata-cursors
+
+# Fonts
+jetbrains-mono
+font-awesome
+fira-code
+fira-code-nerdfont
+dejavu_fonts
+
+# Utilities
+brightnessctl
+tumbler
+nwg-look
+qt6ct
+polkit_gnome
+power-profiles-daemon
+
+# File manager
+nautilus
+
+# Dock
+nwg-dock-hyprland
+
+# Launcher
+rofi-wayland
+
+# SDDM
+sddm
+sddm-chili-theme # placeholder, replace with rose-pine if available
+
+# Optional/other
+loupe
+pinta
+matugen
+wallust

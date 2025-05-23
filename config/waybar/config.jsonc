@@ -1,0 +1,43 @@
+{
+  // Minimal Rose Pine themed Waybar config
+  "layer": "top",
+  "position": "top",
+  "height": 32,
+  "modules-left": ["hyprland/workspaces", "hyprland/window"],
+  "modules-center": ["clock"],
+  "modules-right": ["pulseaudio", "network", "battery", "tray"],
+
+  "clock": {
+    "format": "{:%a %d %b  %H:%M}",
+    "tooltip-format": "{:%A, %d %B %Y}\n{:%H:%M:%S}"
+  },
+
+  "pulseaudio": {
+    "format": " {volume}%"
+  },
+
+  "network": {
+    "format-wifi": " {essid}",
+    "format-ethernet": " {ipaddr}",
+    "format-disconnected": " Disconnected"
+  },
+
+  "battery": {
+    "format": "{capacity}% {icon}",
+    "format-icons": ["", "", "", "", ""]
+  },
+
+  "tray": {
+    "icon-size": 18,
+    "spacing": 8
+  },
+
+  // Rose Pine color palette
+  "style": {
+    "background": "#191724",
+    "border-color": "#26233a",
+    "color": "#e0def4",
+    "accent": "#eb6f92",
+    "highlight": "#31748f"
+  }
+}

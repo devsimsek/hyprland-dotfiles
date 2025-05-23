@@ -1,0 +1,93 @@
+/**************************************************
+ * Rose Pine Minimal Waybar Theme
+ * https://rosepinetheme.com/
+ **************************************************/
+
+@define-color base      #191724;
+@define-color surface   #1f1d2e;
+@define-color overlay   #26233a;
+@define-color muted     #6e6a86;
+@define-color subtle    #908caa;
+@define-color text      #e0def4;
+@define-color love      #eb6f92;
+@define-color gold      #f6c177;
+@define-color rose      #ebbcba;
+@define-color pine      #31748f;
+@define-color foam      #9ccfd8;
+@define-color iris      #c4a7e7;
+@define-color highlight #524f67;
+
+* {
+    border: none;
+    border-radius: 6px;
+    font-family: JetBrainsMono, "Fira Code", "DejaVu Sans Mono", monospace;
+    font-size: 14px;
+    min-height: 0;
+}
+
+window#waybar {
+    background: @base;
+    color: @text;
+    border-radius: 8px;
+    border: 1px solid @overlay;
+}
+
+#workspaces button {
+    background: transparent;
+    color: @muted;
+    padding: 0 8px;
+    margin: 2px 2px;
+}
+
+#workspaces button.active {
+    background: @overlay;
+    color: @rose;
+}
+
+#workspaces button.urgent {
+    background: @love;
+    color: @base;
+}
+
+#clock,
+#battery,
+#cpu,
+#memory,
+#network,
+#pulseaudio,
+#tray,
+#backlight,
+#custom-launcher,
+#custom-power {
+    background: @surface;
+    color: @text;
+    padding: 0 10px;
+    margin: 2px 2px;
+}
+
+#clock {
+    color: @gold;
+}
+
+#battery.charging {
+    color: @foam;
+}
+
+#battery.critical:not(.charging) {
+    color: @love;
+}
+
+#pulseaudio.muted {
+    color: @muted;
+}
+
+#tray {
+    background: @overlay;
+    padding: 0 8px;
+}
+
+#custom-power {
+    background: @love;
+    color: @base;
+    margin-right: 8px;
+}
