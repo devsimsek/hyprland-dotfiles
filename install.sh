@@ -2,6 +2,22 @@
 
 set -e
 
+# Script version
+SCRIPT_VERSION="1.0.0"
+GITHUB_REPO="devsimsek/hyprland-dotfiles"
+
+check_latest_version() {
+    if command -v curl >/dev/null 2>&1 && command -v jq >/dev/null 2>&1; then
+        LATEST_VERSION=$(curl -s "https://api.github.com/repos/$GITHUB_REPO/releases/latest" | jq -r .tag_name)
+        if [ -n "$LATEST_VERSION" ] && [ "$SCRIPT_VERSION" != "$LATEST_VERSION" ]; then
+            echo "A new version of this script is available: $LATEST_VERSION (you have $SCRIPT_VERSION)"
+            echo "Please update by pulling the latest changes from GitHub."
+        fi
+    fi
+}
+
+check_latest_version
+
 # Detect distro
 detect_distro() {
     if [ -f /etc/arch-release ]; then
@@ -42,7 +58,14 @@ install_arch() {
 
     # Install packages from package list
     echo "Installing packages from packages/arch.txt..."
-    yay -S --needed --noconfirm $(grep -vE '^\s*#' "$(dirname "$0")/packages/arch.txt" | xargs)
+    while read -r pkg; do
+        [ -z "$pkg" ] && continue
+        if yay -Qi "$pkg" &>/dev/null; then
+            echo "$pkg is already installed."
+        else
+            yay -S --noconfirm "$pkg"
+        fi
+    done < <(grep -vE '^\s*#' "$(dirname "$0")/packages/arch.txt")
 
     # Enable and start SDDM
     echo "Enabling and starting SDDM display manager..."
@@ -95,7 +118,14 @@ install_arch() {
 install_fedora() {
     echo "Detected Fedora."
     sudo dnf upgrade -y
-    sudo dnf install -y $(grep -vE '^\s*#' "$(dirname "$0")/packages/fedora.txt" | xargs)
+    while read -r pkg; do
+        [ -z "$pkg" ] && continue
+        if rpm -q "$pkg" &>/dev/null; then
+            echo "$pkg is already installed."
+        else
+            sudo dnf install -y "$pkg"
+        fi
+    done < <(grep -vE '^\s*#' "$(dirname "$0")/packages/fedora.txt")
     # Enable and start SDDM
     echo "Enabling and starting SDDM display manager..."
     sudo systemctl enable sddm
