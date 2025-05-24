@@ -58,15 +58,20 @@ install_arch() {
     fi
 
     # Install packages from package list
-    echo "Installing packages from packages/arch.txt..."
+    PKGLIST="$(dirname "$0")/packages/arch.txt"
+    if [ ! -f "$PKGLIST" ]; then
+        echo "ERROR: Package list $PKGLIST not found!"
+        exit 1
+    fi
+    echo "Installing packages from $PKGLIST..."
     while read -r pkg; do
         [ -z "$pkg" ] && continue
         if yay -Qi "$pkg" &>/dev/null; then
-            echo "$pkg is already installed."
+            echo "$pkg" is already installed.
         else
             yay -S --noconfirm "$pkg"
         fi
-    done < <(grep -vE '^\s*#' "$(dirname "$0")/packages/arch.txt")
+    done < <(grep -vE '^\s*#' "$PKGLIST")
 
     # Enable and start SDDM
     echo "Enabling and starting SDDM display manager..."
