@@ -8,7 +8,6 @@ zsh
 starship
 neovim
 fastfetch
-eza
 fzf
 htop
 python3

@@ -8,7 +8,6 @@ starship
 kitty
 neovim
 vi
-eza
 fzf
 htop
 fastfetch

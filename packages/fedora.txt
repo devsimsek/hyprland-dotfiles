@@ -7,7 +7,6 @@ kitty
 neovim
 vi
 htop
-eza
 fzf
 ripgrep
 fd-find
