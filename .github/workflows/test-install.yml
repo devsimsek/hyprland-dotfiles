@@ -22,7 +22,7 @@ jobs:
           echo "testuser ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
       - name: Run install.sh as testuser
         run: |
-          sudo -u testuser bash install.sh
+          sudo -u testuser bash $GITHUB_WORKSPACE/install.sh
 
   fedora:
     runs-on: ubuntu-latest
@@ -37,4 +37,4 @@ jobs:
           echo "testuser ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
       - name: Run install.sh as testuser
         run: |
-          sudo -u testuser bash install.sh
+          sudo -u testuser bash $GITHUB_WORKSPACE/install.sh
