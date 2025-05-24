@@ -49,6 +49,24 @@ install_arch() {
     sudo systemctl enable sddm
     sudo systemctl start sddm
 
+    # Set SDDM theme to rose-pine
+    echo "Setting SDDM theme to rose-pine..."
+    if [ -d /etc/sddm.conf.d ]; then
+        echo -e "[Theme]\nCurrent=rose-pine" | sudo tee /etc/sddm.conf.d/10-theme.conf
+    else
+        sudo mkdir -p /etc/sddm.conf.d
+        echo -e "[Theme]\nCurrent=rose-pine" | sudo tee /etc/sddm.conf.d/10-theme.conf
+    fi
+
+    # Set SDDM theme to rose-pine
+    echo "Setting SDDM theme to rose-pine..."
+    if [ -d /etc/sddm.conf.d ]; then
+        echo -e "[Theme]\nCurrent=rose-pine" | sudo tee /etc/sddm.conf.d/10-theme.conf
+    else
+        sudo mkdir -p /etc/sddm.conf.d
+        echo -e "[Theme]\nCurrent=rose-pine" | sudo tee /etc/sddm.conf.d/10-theme.conf
+    fi
+
    # Symlink configs
    echo "Symlinking configs to ~/.config/ ..."
    mkdir -p "$HOME/.config"
@@ -62,6 +80,12 @@ install_arch() {
    ln -sf "$(dirname "$0")/config/qt6ct" "$HOME/.config/qt6ct"
    ln -sf "$(dirname "$0")/config/gtk-3.0" "$HOME/.config/gtk-3.0"
    ln -sf "$(dirname "$0")/config/zsh/.zshrc" "$HOME/.zshrc"
+
+   # Set zsh as default shell if not already set
+   if [ "$SHELL" != "$(which zsh)" ]; then
+       echo "Setting zsh as your default shell..."
+       chsh -s "$(which zsh)"
+   fi
 
    echo "Arch Linux setup complete."
 }
@@ -88,6 +112,12 @@ install_fedora() {
    ln -sf "$(dirname "$0")/config/qt6ct" "$HOME/.config/qt6ct"
    ln -sf "$(dirname "$0")/config/gtk-3.0" "$HOME/.config/gtk-3.0"
    ln -sf "$(dirname "$0")/config/zsh/.zshrc" "$HOME/.zshrc"
+
+   # Set zsh as default shell if not already set
+   if [ "$SHELL" != "$(which zsh)" ]; then
+       echo "Setting zsh as your default shell..."
+       chsh -s "$(which zsh)"
+   fi
 
    echo "Fedora setup complete."
 }
