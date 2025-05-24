@@ -80,6 +80,8 @@ install_arch() {
    ln -sf "$(dirname "$0")/config/qt6ct" "$HOME/.config/qt6ct"
    ln -sf "$(dirname "$0")/config/gtk-3.0" "$HOME/.config/gtk-3.0"
    ln -sf "$(dirname "$0")/config/zsh/.zshrc" "$HOME/.zshrc"
+   mkdir -p "$HOME/.config/wallpapers"
+   cp -r "$(dirname "$0")/wallpapers/." "$HOME/.config/wallpapers/"
 
    # Set zsh as default shell if not already set
    if [ "$SHELL" != "$(which zsh)" ]; then
@@ -112,6 +114,8 @@ install_fedora() {
    ln -sf "$(dirname "$0")/config/qt6ct" "$HOME/.config/qt6ct"
    ln -sf "$(dirname "$0")/config/gtk-3.0" "$HOME/.config/gtk-3.0"
    ln -sf "$(dirname "$0")/config/zsh/.zshrc" "$HOME/.zshrc"
+   mkdir -p "$HOME/.config/wallpapers"
+   cp -r "$(dirname "$0")/wallpapers/." "$HOME/.config/wallpapers/"
 
    # Set zsh as default shell if not already set
    if [ "$SHELL" != "$(which zsh)" ]; then
@@ -127,6 +131,10 @@ install_nix() {
     echo "Please add the following packages to your configuration.nix:"
     grep -vE '^\s*#' "$(dirname "$0")/packages/nix.txt"
     echo "NixOS setup is manual. See above for package list."
+
+    # Copy wallpapers to ~/.config/wallpapers
+    mkdir -p "$HOME/.config/wallpapers"
+    cp -r "$(dirname "$0")/wallpapers/." "$HOME/.config/wallpapers/"
 }
 
 main() {
