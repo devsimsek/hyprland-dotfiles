@@ -12,7 +12,7 @@ ripgrep
 fd-find
 python3-pip
 python3-gobject
-python3-screeninfo
+# python3-screeninfo, not supported on fedora.
 imagemagick
 jq
 xclip
