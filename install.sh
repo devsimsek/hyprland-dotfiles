@@ -47,11 +47,12 @@ install_arch() {
     # Install yay if not present
     if ! command -v yay >/dev/null 2>&1; then
         echo "Installing yay (AUR helper)..."
-        git clone https://aur.archlinux.org/yay.git || true
-        cd yay
+        YAYDIR="$HOME/yay"
+        git clone https://aur.archlinux.org/yay.git "$YAYDIR" || true
+        cd "$YAYDIR"
         makepkg -si --noconfirm
         cd ..
-        rm -rf yay
+        rm -rf "$YAYDIR"
     else
         echo "yay is already installed. (good)"
     fi
@@ -118,6 +119,21 @@ install_arch() {
 install_fedora() {
     echo "Detected Fedora."
     sudo dnf upgrade -y
+
+    # Enable Copr repo for starship if not already enabled
+    if ! rpm -q starship &>/dev/null; then
+        sudo dnf install -y 'dnf-command(copr)'
+        sudo dnf copr enable atim/starship -y
+    fi
+
+    sudo dnf upgrade -y
+
+    # Enable Copr repo for starship if not already enabled
+    if ! rpm -q starship &>/dev/null; then
+        sudo dnf install -y 'dnf-command(copr)'
+        sudo dnf copr enable atim/starship -y
+    fi
+
     while read -r pkg; do
         [ -z "$pkg" ] && continue
         if rpm -q "$pkg" &>/dev/null; then
