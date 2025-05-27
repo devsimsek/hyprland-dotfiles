@@ -1,0 +1,83 @@
+# Alpine Linux minimal package list for Rose Pine + Hyprland setup
+
+# Core system
+zsh
+starship
+kitty
+neovim
+vi
+htop
+fzf
+ripgrep
+fd
+python3
+py3-pip
+py3-gobject3
+imagemagick
+jq
+xclip
+cargo
+rust
+flatpak
+git
+curl
+wget
+sudo
+
+# Hyprland & Wayland essentials
+hyprland
+waybar
+rofi
+swaynotificationcenter
+wlogout
+grim
+slurp
+cliphist
+nwg-look
+qt6ct
+brightnessctl
+polkit-gnome
+network-manager-applet
+nm-connection-editor
+blueman
+power-profiles-daemon
+tumbler
+gvfs
+
+# File manager
+nautilus
+
+# Appearance
+papirus-icon-theme
+breeze-icon-theme
+bibata-cursor-theme
+adwaita-gtk3
+gtk+3.0
+gtk4
+libadwaita
+
+# Fonts
+ttf-jetbrains-mono
+ttf-fira-code
+ttf-fira-sans
+font-awesome
+ttf-dejavu
+
+# SDDM
+sddm
+
+# Optional: Rose Pine themes (manual install or via script)
+# See: https://github.com/rose-pine/sddm, https://github.com/rose-pine/gtk
+
+# Optional: Wallpapers (add to wallpapers/ directory)
+
+# Optional: Other apps
+pinta
+loupe
+
+# Flatpak apps (install via flatpak)
+# zed
+# zen-browser
+
+# Note: Some packages may require community or testing repositories enabled.
+# Some packages (e.g., hyprland, waybar, swaynotificationcenter) may require edge/testing or manual build.

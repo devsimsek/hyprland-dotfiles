@@ -37,6 +37,27 @@ detect_distro() {
     fi
 }
 
+# Install packages for Alpine
+install_alpine_packages() {
+   echo "Detected Alpine Linux."
+   sudo apk update
+
+   PKGLIST="$(dirname "$0")/packages/alpine.txt"
+   if [ ! -f "$PKGLIST" ]; then
+       echo "ERROR: Package list $PKGLIST not found!"
+       exit 1
+   fi
+   echo "Installing packages from $PKGLIST..."
+   while read -r pkg; do
+       [ -z "$pkg" ] && continue
+       if apk info -e "$pkg" >/dev/null 2>&1; then
+           echo "$pkg is already installed."
+       else
+           sudo apk add "$pkg"
+       fi
+   done < <(grep -vE '^\s*#' "$PKGLIST")
+}
+
 # Copy config directory or file, removing target first if needed
 copy_config() {
     SRC="$1"
@@ -258,6 +279,20 @@ main() {
             sudo systemctl enable sddm
             sudo systemctl start sddm
             echo "Fedora setup complete."
+            ;;
+        alpine)
+            install_alpine_packages
+            setup_sddm_theme
+            copy_all_configs
+            install_astronvim
+            copy_wallpapers
+            install_oh_my_zsh
+            ensure_zsh_shell
+            ensure_starship_zshrc
+            echo "Enabling and starting SDDM display manager (OpenRC)..."
+            sudo rc-update add sddm default
+            sudo rc-service sddm start
+            echo "Alpine Linux setup complete."
             ;;
         nix)
             nix_instructions
